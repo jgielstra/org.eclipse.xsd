@@ -16,6 +16,7 @@ import java.util.Comparator;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.osgi.framework.BundleActivator;
 
 
 /**
@@ -122,7 +123,7 @@ public final class XSDPlugin extends EMFPlugin
   /**
    * The actual implementation of the Eclipse <b>Plugin</b>.
    */
-  public static class Implementation extends EMFPlugin.EclipsePlugin
+  public static class Implementation extends EclipsePlugin
   {
     /**
      * Creates an instance.
@@ -134,6 +135,17 @@ public final class XSDPlugin extends EMFPlugin
       // Remember the static instance.
       //
       plugin = this;
+    }
+    /**
+     * @since 2.10
+     */
+    public static final class Activator extends EMFPlugin.OSGiDelegatingBundleActivator
+    {
+      @Override
+      protected BundleActivator createBundle()
+      {
+        return new Implementation();
+      }
     }
   }
 }

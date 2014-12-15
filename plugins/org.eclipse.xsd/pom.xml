@@ -8,6 +8,13 @@
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
+	  <distributionManagement>
+    <repository>
+      <id>nexus-repo</id>
+      <url>${repo.url}</url>
+    </repository>
+  </distributionManagement>
+
 <repositories>
     <repository>
       <id>eclipse-luna</id>
@@ -18,8 +25,6 @@
 	<properties>
 		<tycho-version>0.20.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<p2repos>file:/d:/ForBuilds/p2repos</p2repos>
-		<BUILD_NAME>PA1501DEV</BUILD_NAME>
 		<encoding>UTF-8</encoding>
 	</properties>
 	<build>
